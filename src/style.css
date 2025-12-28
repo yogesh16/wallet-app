@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply font-sans antialiased;
+    overflow-x: hidden;
+    background-color: #111117;
+    min-height: 100vh;
+  }
+  
+  /* Custom scrollbar - hide on mobile */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  /* Card component base */
+  .card {
+    @apply bg-papara-card rounded-2xl p-4;
+  }
+  
+  .card-interactive {
+    @apply card transition-colors duration-200 hover:bg-papara-card-hover active:bg-papara-card-hover;
+  }
+  
+  /* Icon button */
+  .icon-btn {
+    @apply w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-200;
+    @apply bg-papara-card hover:bg-papara-card-hover active:bg-papara-card-hover;
+  }
+  
+  /* Shortcut icon circle */
+  .shortcut-icon {
+    @apply w-14 h-14 rounded-full flex items-center justify-center;
+    @apply bg-papara-card;
+  }
+  
+  /* Primary button */
+  .btn-primary {
+    @apply bg-papara-green text-white font-semibold px-6 py-3 rounded-full;
+    @apply transition-colors duration-200 hover:bg-papara-green-dark active:bg-papara-green-dark;
+  }
+  
+  /* Secondary button */
+  .btn-secondary {
+    @apply bg-papara-card text-white font-medium px-6 py-3 rounded-full;
+    @apply transition-colors duration-200 hover:bg-papara-card-hover active:bg-papara-card-hover;
+  }
+  
+  /* Bottom sheet backdrop */
+  .sheet-backdrop {
+    @apply fixed inset-0 bg-black/60 z-40;
+    @apply animate-fade-in;
+  }
+  
+  /* Bottom sheet container */
+  .sheet-container {
+    @apply fixed bottom-0 left-0 right-0 z-50;
+    @apply bg-papara-card rounded-t-3xl;
+    @apply animate-slide-up;
+    @apply max-h-[85vh] overflow-y-auto;
+  }
+  
+  /* Sheet handle */
+  .sheet-handle {
+    @apply w-10 h-1 bg-text-muted rounded-full mx-auto mt-3 mb-4;
+  }
+  
+  /* Navigation item */
+  .nav-item {
+    @apply flex flex-col items-center justify-center gap-1 py-2 px-3;
+    @apply text-text-secondary transition-colors duration-200;
+    @apply whitespace-nowrap;
+  }
+  
+  .nav-item.active {
+    @apply text-white;
+  }
+  
+  /* Amount text colors */
+  .amount-positive {
+    @apply text-papara-green;
+  }
+  
+  .amount-negative {
+    @apply text-papara-red;
+  }
+  
+  /* Hide scrollbar for horizontal scroll areas */
+  .scroll-hidden {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Safe area insets for mobile */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  /* Touch action for gestures */
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+  
+  .touch-pan-y {
+    touch-action: pan-y;
+  }
+}
