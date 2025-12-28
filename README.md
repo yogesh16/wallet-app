@@ -22,7 +22,7 @@ A modern digital wallet application built with Vue 3, featuring PWA support for 
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone git@github.com:yogesh16/wallet-app.git
 cd wallet-app
 
 # Install dependencies
